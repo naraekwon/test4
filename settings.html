@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="styles.css">
+		<script type="module" src="script.js"></script>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Arapey&family=Karma&family=Lato&family=Montserrat&family=Raleway&display=swap" rel="stylesheet">
+		<link rel="icon" href="Diarywise_favicon.png" type="image/x-icon" sizes="32x32" />
+		<style>
+
+		</style>
+		<script>
+
+		</script>
+	</head>
+
+	<body onload='loadTheme()'>
+		<div class="header">
+			<br>
+			<a href="index.html">
+				<img src="Diarywise_Logo.png" alt="Website Logo" class="logo">
+			</a>
+			<center>
+				<h2 class="title"> Settings </h2>
+			</center>
+			<ul id="co">
+				<li id="cinco">
+					<a href="https://www.enviremadstar.com/~/Diary%20Creator%20Group%20Project/settings" class="settings" id="link"> Settings </a>
+				</li>
+				<li id = "seis">
+					<a onclick='logout()' id = "link">Log Out</a>
+				</li>
+			</ul>
+		</div>
+		<div style="height: auto;">
+			<br>
+			<h1> Themes For the Website </h1>
+			<div class="body">
+				<button type="button" class="collapsible autumn">Open Autumn Themed Options</button>
+				<div class="content autumn-content">
+					<h2 class="themeHeading"> Autumn Theme </h2>
+					<!--Something about the theme. Some lines telling how it.-->
+					<p>
+
+					</p>
+					<!--Autumn Colored Background Color-->
+					<center>
+						<button onclick="autumnFunction()" class="btn-pretty">Toggle autumn mode</button>
+					</center>
+					<!--Autum Colored Bakground Image-->
+					<center>
+						<button onclick="autumnFunctionBackground()" class="btn-pretty">Toggle Autumn background Image</button>
+					</center>
+					<br>
+					<br>
+					<br>
+				</div>
+
+				<button type="button" class="collapsible black">Open Dark themed options</button>
+				<div class="content black-content">
+					<h2> Dark Theme </h2>
+					<!--Something about the theme. Some lines telling how it.-->
+					<p>
+
+					</p>
+					<!--Dark Colored Background Color-->
+					<center>
+						<button onclick="blackFunction()" class="btn-pretty">Toggle dark mode</button>
+					</center>
+					<!--Dark Colored Bakground Image-->
+					<center>
+						<button onclick="blackFunctionbackground()" class="btn-pretty">Toggle dark background Image</button>
+					</center>
+					<br>
+					<br>
+					<br>
+				</div>
+
+				<button type="button" class="collapsible pink">Open Pink themed Options</button>
+				<div class="content pink-content">
+					<h2 class="themeHeading"> Pink Theme </h2>
+					<!--Something about the theme. Some lines telling how it.-->
+					<p>
+
+					</p>
+					<!--Pink Colored Background Color-->
+					<center>
+						<button onclick="pinkFunction()" class="btn-pretty">Toggle pink mode</button>
+					</center>
+					<!--Pink Colored Bakground Image-->
+					<center>
+						<button onclick="pinkFunctionbackground()" class="btn-pretty">Toggle pink background Image</button>
+					</center>
+					<br>
+					<br>
+					<br>
+				</div>
+
+				<button type="button" class="collapsible purple">Open Purple themed Options</button>
+				<div class="content purple-content">
+					<h2 class="themeHeading"> Purple Theme </h2>
+					<!--Something about the theme. Some lines telling how it.-->
+					<p>
+
+					</p>
+					<!--Purple Colored Background Color-->
+					<center>
+						<button onclick="purpleFunction()" class="btn-pretty">Toggle purple mode</button>
+					</center>
+					<!--Purple Colored Bakground Image-->
+					<center>
+						<button onclick="purpleFunctionBackground()" class="btn-pretty">Toggle purple background Image</button>
+					</center>
+					<br>
+					<br>
+					<br>
+				</div>
+
+				<button type="button" class="collapsible warm">Open Warm themed Options</button>
+				<div class="content warm-content">
+					<h2 class="themeHeading"> Warm Theme </h2>
+					<!--Something about the theme. Some lines telling how it.-->
+					<p>
+
+					</p>
+					<!--Warm Colored Background Color-->
+					<center>
+						<button onclick="warmFunction()" class="btn-pretty">Toggle warm mode</button>
+					</center>
+					<!--Warm Colored Bakground Image-->
+					<center>
+						<button onclick="warmFunctionBackground()" class="btn-pretty">Toggle warm background Image</button>
+					</center>
+					<br>
+					<br>
+					<br>
+				</div>
+
+				<button type="button" class="collapsible green">Open Green themed Options</button>
+				<div class="content green-content">
+					<h2 class="themeHeading"> Green Theme </h2>
+					<!--Something about the theme. Some lines telling how it.-->
+					<p>
+
+					</p>
+					<!--Green Colored Background Color-->
+					<center>
+						<button onclick="greenFunction()" class="btn-pretty">Toggle Green mode</button>
+					</center>
+					<!--Green Colored Bakground Image-->
+					<center>
+						<button onclick="greenFunctionBackground()" class="btn-pretty">Toggle Green background Image</button>
+					</center>
+					<br>
+					<br>
+					<br>
+				</div>
+
+				<button type="button" class="collapsible blue">Open Blue themed Options</button>
+				<div class="content blue-content">
+					<h2 class="themeHeading"> Blue Theme </h2>
+					<!--Something about the theme. Some lines telling how it.-->
+					<p>
+
+					</p>
+					<!--Blue Colored Background Color-->
+					<center>
+						<button onclick="blueFunction()" class="btn-pretty">Toggle Blue mode</button>
+					</center>
+					<!--Blue Colored Bakground Image-->
+					<center>
+						<button onclick="blueFunctionBackground()" class="btn-pretty">Toggle Blue background Image</button>
+					</center>
+					<br>
+					<br>
+					<br>
+				</div>
+				<br>
+				<br>
+				<br>
+			</div>
+		</div>
+
+		<div class="Personal">
+			<h2> About Me </h2>
+			<h2>
+				Your username is: {{username}}
+			</h2>
+		</div>
+
+		<div>
+
+		</div>
+
+		<div class="password">
+			<div id="password-reset">
+				<br>
+				<h2> Password Reset </h2>
+			</div>
+		</div>
+
+		<div id="foot">
+			<center>
+				<section id="contact">
+					<h2>Contact</h2>
+					<form action='/survey/checkout' method='post' enctype="multipart/form-data">
+						<input type="text" name="Name" placeholder='Your name' required>
+						<input type="email" name="email" placeholder='Your email' required>
+						<textarea placeholder='Write a message here' required></textarea>
+						<button>Send Message</button>
+						<input type='hidden' name='redirecturl' value='thankyou.html'>
+						<input type='hidden' name='survey' value='Contact'>
+					</form>
+				</section>
+			</center>
+			<p id="pTag2">Copyright © 2021 Diarywise Team </p>
+		</div>
+
+	</body>
+
+</html>

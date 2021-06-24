@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset='utf-8' />
+		<link href='https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@5.6.0/main.min.css' rel='stylesheet' />
+		<script src='https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@5.6.0/main.min.js'></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="styles.css">
+		<script type="module" src="script.js"></script>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Arapey&family=Karma&family=Lato&family=Montserrat&family=Raleway&display=swap" rel="stylesheet">
+		<link rel="icon" href="Diarywise_favicon.png" type="image/x-icon" sizes="32x32" />
+		<style>
+			
+		</style>
+		<script>
+			/* Ask the server for the data by its name we gave it */
+			/* Putting the data into an array so that we can easily count the entries */
+			async function load() {
+				const resp = await fetch('/~/Diary%20Creator%20Group%20Project/account/entries?all=true')
+				window.json = await resp.json();
+				console.log(json);
+				const html = 
+				`
+				<!--In every entry it display's this part-->
+				<h2> Welcome {{name}}!</h2>
+				<h2>Today's Date is: {date}</h2>
+				<!--Form to add a file one of the features:-->
+				<div class="form">
+					<div class="dropdown">
+						<button class="dropbtn">Fonts</button>
+						<div class="dropdown-content">
+							<a onclick = "Helvetica()">Helvetica</a>
+							<a onclick = "Futura()">Futura</a>
+							<a onclick = "Calibri()">Calibri</a>
+							<a onclick = "Garamond()">Garamond</a>
+							<a onclick = "TimesNewRoman()">Times New Roman</a>
+							<a onclick = "TradeSecrets()">Trade Secrets</a>
+							<a onclick = "Arial()">Arial</a>
+							<a onclick = "Cambria()">Cambria</a>
+							<a onclick = "Verdana()">Verdana</a>
+							<a onclick = "Rockwell()">Rockwell</a>
+							<a onclick = "FranklinGothic()">Franklin Gothic</a>
+						</div>
+					</div>
+					<div class="dropdown2">
+						<button class="dropbtn2">Size</button>
+						<div class="dropdown2-content">
+							<a onclick = "fiveSize()"> 5 </a>
+							<a onclick = "tenSize()"> 10 </a>
+							<a onclick = "twelveSize()"> 12</a>
+							<a onclick = "fourteenSize()"> 14 </a>
+							<a onclick = "sixteenSize()"> 16</a>
+							<a onclick = "eighteenSize()"> 18 </a>
+							<a onclick = "twentySize()"> 20 </a>
+							<a onclick = "twentyfiveSize()"> 25 </a>
+							<a onclick = "thirtySize()"> 30 </a>
+							<a onclick = "fourtySize()"> 40 </a>
+						</div>
+					</div>
+					<div class="dropdown3">
+						<button class="dropbtn3">Font Color</button>
+						<div class="dropdown3-content">
+							<a onclick = "blackColor()"> Black </a>
+							<a onclick = "whiteColor()"> White </a>
+							<a onclick = "greyColor()"> Grey </a>
+							<a onclick = "blueColor()"> Blue </a>
+							<a onclick = "redColor()"> Red </a>
+							<a onclick = "purpleColor()"> Purple </a>
+							<a onclick = "pinkColor()"> Pink </a>
+							<a onclick = "greenColor()"> Green </a>
+						</div>
+					</div>
+					<br>
+					<br>
+					<textarea class="textarea" style="text-align:left" id="writing">
+					{{contents}}
+					</textarea>
+					<br>
+					<br>
+					<input type="file" id="myFile" name="filename" multiple>
+					<br>
+					<button> <a> Submit </a> </button>
+					<br>
+					<br>
+					<button onclick = "save(this)" class = "btn-pretty"> Submit Form </button>
+					<input type='hidden' name='redirecturl' value='DiaryEntryThanks.html'>
+					<input type='hidden' name='survey' value='Diary Entry'>
+					<hr>
+				</div>
+				`
+				var dates = json.map(item => item.date);
+				var uniqueDates = new Set(dates);
+				for (var d of uniqueDates) {
+					var div = document.createElement('div');
+					div.innerHTML = html.replace("{date}", d);
+					document.getElementById('entries').appendChild(div);
+				}
+			}
+			load();
+			
+		</script>
+	</head>
+
+	<body onload='loadTheme()'>
+		<div class="header">
+			<br>
+			<a href="index.html">
+				<img src="Diarywise_Logo.png" alt="Website Logo" class="logo">
+			</a>
+			<center>
+				<h2 class="title"> Diary Entries </h2>
+			</center>
+			<ul id="co">
+				<li id="cinco">
+					<a href="https://www.enviremadstar.com/~/Diary%20Creator%20Group%20Project/settings" class="settings" id="link"> Settings </a>
+				</li>
+				<li id = "seis">
+					<a onclick='logout()' id = "link">Log Out</a>
+				</li>
+			</ul>
+		</div>
+		<div id = "entries">
+		
+		</div>
+		
+		<div id="foot">
+			<center>
+				<section id="contact">
+					<h2>Contact</h2>
+					<form action='/survey/checkout' method='post' enctype="multipart/form-data">
+						<input type="text" name="Name" placeholder='Your name' required>
+						<input type="email" name="email" placeholder='Your email' required>
+						<textarea placeholder='Write a message here' required></textarea>
+						<button>Send Message</button>
+						<input type='hidden' name='redirecturl' value='thankyou.html'>
+						<input type='hidden' name='survey' value='Contact'>
+					</form>
+				</section>
+			</center>
+			<p id="pTag2">Copyright © 2021 Diarywise Team </p>
+		</div>
+		
+		<script>
+			load();
+		</script>
+	</body>
+
+</html>

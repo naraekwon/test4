@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset='utf-8' />
+		<link href='https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@5.6.0/main.min.css' rel='stylesheet' />
+		<script src='https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@5.6.0/main.min.js'></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="styles.css">
+		<script type="module" src="script.js"></script>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Arapey&family=Karma&family=Lato&family=Montserrat&family=Raleway&display=swap" rel="stylesheet">
+		<link rel="icon" href="Diarywise_favicon.png" type="image/x-icon" sizes="32x32"/>
+		<style>
+			.fc-day-sun {
+				background-color: #deab90;
+			}
+			
+			.fc-day-mon {
+				background-color: #ffedd8;
+			}
+			
+			.fc-day-tue {
+				background-color: #ffedd8;
+			}
+			
+			.fc-day-wed {
+				background-color: #ffedd8;
+			}
+			
+			.fc-day-thu {
+				background-color: #ffedd8;
+			}
+			
+			.fc-day-fri {
+				background-color: #ffedd8;
+			}
+			
+			.fc-day-sat {
+				background-color: #ffedd8;
+			}
+
+			.fc-license-message {
+				display: none !important;
+			}
+
+			body {
+				color: black;
+			}
+
+			a {
+				color: black;
+			}
+
+			#calendar {
+				width: 1000px;
+				height: 700px;
+			}
+		</style>
+		<script>
+			// https://fullcalendar.io/docs
+			document.addEventListener('DOMContentLoaded', function () {
+				var calendarEl = document.getElementById('calendar');
+				var calendar = new FullCalendar.Calendar(calendarEl, {
+					initialView: 'dayGridMonth',
+					dateClick: async function (info) {
+						// debugger;
+						/*
+							Step 1: First Look through the Entries
+							Step 2: See if you have the same Date
+							Step 3: Then go and fetch it if you don't have the same date
+						*/
+						let resp = await fetch('/~/Diary%20Creator%20Group%20Project/account/entries?all=true')
+						let json = await resp.json();
+						let exists = json.some(item => item.date === info.dateStr);
+						
+						resp = await fetch('/~/Diary Creator Group Project/account/entries', {
+							method: 'POST',
+							headers: { 'content-type': 'application/json' },
+							body: JSON.stringify({
+								name: '{{name}}',
+								username: '{{username}}',
+								date: info.dateStr,
+								contents: 'Add diary entry...'
+							})
+						});
+						var url = '/~/Diary Creator Group Project/diary'
+						var a = document.createElement('a');
+						a.href = url;
+						a.setAttribute('target', '_blank');
+						a.click();
+					}
+				});
+				calendar.render();
+			});
+
+			window.logout = function () {
+				fetch('/~/Diary Creator Group Project/logout', { method: 'POST' })
+				location.href = '/~/Diary Creator Group Project/index'
+			}
+		</script>
+	</head>
+
+	<body onload='loadTheme()'>
+		<div class="header">
+			<br>
+			<a href="index.html">
+				<img src="Diarywise_Logo.png" alt="Website Logo" class="logo">
+			</a>
+			<h2 class="title"> Calender Page </h2>
+			<ul id="co">
+				<li id="cinco">
+					<a href="https://www.enviremadstar.com/~/Diary%20Creator%20Group%20Project/settings" class="settings" id="link"> Settings </a>
+				</li>
+				<li id = "cinco2">
+					<a onclick='logout()' id = "link"> Logout </a>
+				</li>
+			</ul>
+		</div>
+		<div>
+			<center>
+			<div>
+				<h1>Welcome {{name}}!</h1>
+			</div>
+			<p class="pTag20">
+				This is the Calender for writing your Diary entries. Click on one date in the calender to take you to a page where you write your entries!! Have fun writing your entries. You can also add images, videos, change the font color and font size in the Area where you write your diary entry.
+			</p>
+			<div id='calendar'>
+
+			</div>
+		</center>
+		</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<div id="foot">
+			<center>
+				<section id="contact">
+					<h2>Contact</h2>
+					<form action='/survey/checkout' method='post' enctype="multipart/form-data">
+						<input type="text" name="Name" placeholder='Your name' required>
+						<input type="email" name="email" placeholder='Your email' required>
+						<textarea placeholder='Write a message here' required></textarea>
+						<button>Send Message</button>
+						<input type='hidden' name='redirecturl' value='thankyou.html'>
+						<input type='hidden' name='survey' value='Contact'>
+					</form>
+				</section>
+			</center>
+			<p id="pTag2">Copyright © 2021 Diarywise Team </p>
+		</div>
+	</body>
+
+</html>

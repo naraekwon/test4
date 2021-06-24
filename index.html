@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="styles.css">
+		<script type="module" src="script.js"></script>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Arapey&family=Karma&family=Lato&family=Montserrat&family=Raleway&display=swap" rel="stylesheet">
+		<link rel="icon" href="Diarywise_favicon.png" type="image/x-icon" sizes="32x32"/>
+		<script>
+			// Get the modal
+			var modal = document.getElementById('id01');
+
+			// When the user clicks anywhere outside of the modal, close it
+			window.onclick = function (event) {
+				if (event.target == modal) {
+					modal.style.display = "none";
+				}
+			}
+
+			// Get the modal
+			var modal = document.getElementById('id02');
+
+			// When the user clicks anywhere outside of the modal, close it
+			window.onclick = function (event) {
+				if (event.target == modal) {
+					modal.style.display = "none";
+				}
+			}
+		</script>
+	</head>
+
+	<body onload='loadTheme()'>
+
+		<div class="header">
+			<br>
+			<img src="Diarywise_Logo.png" alt="Website Logo" class="logo">
+			<ul id="co">
+				<li id="uno">
+					<a href="#goal" class="goal" id="link"> Our Goal </a>
+				</li>
+				<li id="dos">
+					<a href="#features" class="features" id="link"> Features </a>
+				</li>
+				<li id="tres">
+					<a href="#about" class="about" id="link"> About Us </a>
+				</li>
+				<li id="cuatro">
+					<a href="settings.html" class="settings" id="link"> Settings </a>
+				</li>
+			</ul>
+		</div>
+
+		<div id="heading">
+			<br>
+			<h1> Welcome to Diarywise </h1>
+			<p id="pTag">
+				In Diarywise we try to connect with our people and make
+				them feel happy and satisfied using our website. Our website
+				is designed to provide a resource to anyone who wants to
+				write a Diary entry before going to bed. They can login to
+				their account and quickly write their entry and even
+				customize it!!
+			</p>
+			<br>
+			<br>
+			<center>
+				<a href='/~/Diary Creator Group Project/signup'><button onclick="document.getElementById('id02').style.display='block'" class="btn2" style="width:150px;" id="signin">Sign Up</button></a>
+				<a href='/~/Diary Creato
+			r Group Project/loginpage'><button onclick="document.getElementById('id01').style.display='block'" class="btn1" style="width:150px;" id="login">Login</button></a>
+			</center>
+		</div>
+
+		<div class="Info">
+			<br>
+			<h3 id="goal"> Our Goal </h3>
+			<p>
+				Our goal is to make every user feel good and have a
+				satisfaction that they wrote their diary entry today. The
+				reason why I built this website is because in my experience I
+				have searched so many websites to write my diary, but in most
+				sinerios I never found the perfect website that matched my
+				expectations of how a Diary writing website should be.
+				That is why I created Diarywise, where you can find the
+				perfect user interface and many cool features to
+				customize your diary entry. I hope you have a lot of Fun
+				while writing your Diary Entries.
+			</p>
+			<h3 id="features"> Features </h3>
+			<p>
+				There are so many amazing features in our website. Anyone can create an account can start writing their diary entry  
+				every day. It is free to use and you can also customize the things that you are writing. You can make the text size 
+				bigger, smaller, use a differnt font or you could even change the color of the font. To start writing the entries you 
+				need you first go to the calender page and then click on the date that you want to write on and they start writing it
+				Our website is a cool place if you want are looking for a website where you want you write a diary in, it might not be
+				the best but it still has all the features you want for it to be a good place to write a diary entry. 
+			</p>
+		</div>
+
+		<div id="foot">
+			<center>
+				<section id="contact">
+					<h2>Contact</h2>
+					<form action='/survey/checkout' method='post' enctype="multipart/form-data">
+						<input type="text" name="Name" placeholder='Your name' required>
+						<input type="email" name="email" placeholder='Your email' required>
+						<textarea placeholder='Write a message here' required></textarea>
+						<button>Send Message</button>
+						<input type='hidden' name='redirecturl' value='thankyou.html'>
+						<input type='hidden' name='survey' value='Contact'>
+					</form>
+				</section>
+			</center>
+			<p id="pTag2">Copyright © 2021 Diarywise Team </p>
+		</div>
+
+	</body>
+
+</html>
